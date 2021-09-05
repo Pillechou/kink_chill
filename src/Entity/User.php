@@ -35,6 +35,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $discord_id;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $discord_username;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -122,5 +132,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getDiscordId(): ?string
+    {
+        return $this->discord_id;
+    }
+
+    public function setDiscordId(?string $discord_id): self
+    {
+        $this->discord_id = $discord_id;
+
+        return $this;
+    }
+
+    public function getDiscordUsername(): ?string
+    {
+        return $this->discord_username;
+    }
+
+    public function setDiscordUsername(?string $discord_username): self
+    {
+        $this->discord_username = $discord_username;
+
+        return $this;
     }
 }

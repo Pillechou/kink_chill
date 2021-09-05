@@ -9,7 +9,6 @@ security:
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
                 class: App\Entity\User
@@ -21,6 +20,7 @@ security:
         main:
             lazy: true
             provider: app_user_provider
+            custom_authenticator: App\Security\DiscordAuthenticator
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
