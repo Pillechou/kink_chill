@@ -30,7 +30,7 @@ class OauthController extends AbstractController
             'prompt' => 'consent',
             'redirect_uri' => $redirectURL,
             'response_type' => 'code' ,
-            'scope' => 'identify guilds' ,
+            'scope' => 'identify email guilds' ,
             'state' => $csrfTokenManager->getToken('oauth-discord-SF')->getValue()
         ]);
         return new RedirectResponse(self::DISCORD_ENDPOINT. "?" . $queryParams);
